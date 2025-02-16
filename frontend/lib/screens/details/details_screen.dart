@@ -19,9 +19,10 @@ class DetailsScreen extends StatelessWidget {
         ModalRoute.of(context)!.settings.arguments as ProductDetailsArguments;
     final product = agrs.product;
     return Scaffold(
+
       extendBody: true,
       extendBodyBehindAppBar: true,
-      backgroundColor: const Color(0xFFF5F6F9),
+      backgroundColor: Colors.black87,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -52,7 +53,7 @@ class DetailsScreen extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Colors.orange,
                   borderRadius: BorderRadius.circular(14),
                 ),
                 child: Row(
@@ -78,7 +79,7 @@ class DetailsScreen extends StatelessWidget {
         children: [
           ProductImages(product: product),
           TopRoundedContainer(
-            color: Colors.white,
+            color: Colors.orange,
             child: Column(
               children: [
                 ProductDescription(
@@ -99,7 +100,7 @@ class DetailsScreen extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: TopRoundedContainer(
-        color: Colors.white,
+        color: Colors.orange,
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
