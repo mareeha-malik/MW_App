@@ -65,7 +65,9 @@ class _SignUpFormState extends State<SignUpForm> {
             },
             decoration: const InputDecoration(
               labelText: "Email",
+              labelStyle: TextStyle(color: Colors.orange,fontSize:24),
               hintText: "Enter your email",
+              hintStyle: TextStyle(color: Colors.white54),
               // If  you are using latest version of flutter then lable text and hint text shown like this
               // if you r using flutter less then 1.20.* then maybe this is not working properly
               floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -96,7 +98,10 @@ class _SignUpFormState extends State<SignUpForm> {
             },
             decoration: const InputDecoration(
               labelText: "Password",
+              labelStyle: TextStyle(color: Colors.orange,fontSize:24),
               hintText: "Enter your password",
+              hintStyle: TextStyle(color: Colors.white54),
+              // hintStyle: TextStyle(color: Colors.white38),
               // If  you are using latest version of flutter then lable text and hint text shown like this
               // if you r using flutter less then 1.20.* then maybe this is not working properly
               floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -127,7 +132,10 @@ class _SignUpFormState extends State<SignUpForm> {
             },
             decoration: const InputDecoration(
               labelText: "Confirm Password",
+              labelStyle: TextStyle(color: Colors.orange,fontSize:24),
               hintText: "Re-enter your password",
+              hintStyle: TextStyle(color: Colors.white54),
+
               // If  you are using latest version of flutter then lable text and hint text shown like this
               // if you r using flutter less then 1.20.* then maybe this is not working properly
               floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -144,7 +152,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 Navigator.pushNamed(context, CompleteProfileScreen.routeName);
               }
             },
-            child: const Text("Continue"),
+            child: const Text("Continue",style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.bold),),
           ),
         ],
       ),
