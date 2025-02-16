@@ -8,7 +8,6 @@ class HomeHeader extends StatelessWidget {
   const HomeHeader({
     Key? key,
   }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,12 +19,15 @@ class HomeHeader extends StatelessWidget {
           const SizedBox(width: 16),
           IconBtnWithCounter(
             svgSrc: "assets/icons/Cart Icon.svg",
+            iconColor: Colors.white,
             press: () => Navigator.pushNamed(context, CartScreen.routeName),
           ),
           const SizedBox(width: 8),
           IconBtnWithCounter(
             svgSrc: "assets/icons/Bell.svg",
-            numOfitem: 3,
+            iconColor: Colors.white,
+
+            numOfitem: 4,
             press: () {},
           ),
         ],
