@@ -13,7 +13,8 @@ class SignInScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: const Text("Sign In"),
+        title: const Text("Sign In", style: TextStyle(color: Colors.white),),
+        backgroundColor: Colors.orange,
       ),
       body: SafeArea(
         child: SizedBox(
