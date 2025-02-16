@@ -10,8 +10,10 @@ class CompleteProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        title: const Text('Sign Up'),
+        backgroundColor: Colors.orange,
+        title: const Text('Sign Up',style: TextStyle(color: Colors.white,fontSize: 20),),
       ),
       body: SafeArea(
         child: SizedBox(
@@ -22,7 +24,7 @@ class CompleteProfileScreen extends StatelessWidget {
               child: Column(
                 children: [
                   const SizedBox(height: 16),
-                  const Text("Complete Profile", style: headingStyle),
+                  const Text("Complete Profile", style: TextStyle(color: Colors.orange,fontSize: 24,fontWeight: FontWeight.bold)),
                   const Text(
                     "Complete your details or continue  \nwith social media",
                     textAlign: TextAlign.center,
