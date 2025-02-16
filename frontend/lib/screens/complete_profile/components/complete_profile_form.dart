@@ -59,7 +59,10 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
             },
             decoration: const InputDecoration(
               labelText: "First Name",
+              labelStyle: TextStyle(color: Colors.orange,fontSize:22),
               hintText: "Enter your first name",
+              hintStyle: TextStyle(color: Colors.white54),
+
               // If  you are using latest version of flutter then lable text and hint text shown like this
               // if you r using flutter less then 1.20.* then maybe this is not working properly
               floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -71,7 +74,10 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
             onSaved: (newValue) => lastName = newValue,
             decoration: const InputDecoration(
               labelText: "Last Name",
+              labelStyle: TextStyle(color: Colors.orange,fontSize:22),
               hintText: "Enter your last name",
+              hintStyle: TextStyle(color: Colors.white54),
+
               // If  you are using latest version of flutter then lable text and hint text shown like this
               // if you r using flutter less then 1.20.* then maybe this is not working properly
               floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -97,9 +103,9 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
             },
             decoration: const InputDecoration(
               labelText: "Phone Number",
+              labelStyle: TextStyle(color: Colors.orange,fontSize:22),
               hintText: "Enter your phone number",
-              // If  you are using latest version of flutter then lable text and hint text shown like this
-              // if you r using flutter less then 1.20.* then maybe this is not working properly
+              hintStyle: TextStyle(color: Colors.white54),
               floatingLabelBehavior: FloatingLabelBehavior.always,
               suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
             ),
@@ -122,9 +128,10 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
             },
             decoration: const InputDecoration(
               labelText: "Address",
+              labelStyle: TextStyle(color: Colors.orange,fontSize:22),
               hintText: "Enter your address",
-              // If  you are using latest version of flutter then lable text and hint text shown like this
-              // if you r using flutter less then 1.20.* then maybe this is not working properly
+              hintStyle: TextStyle(color: Colors.white54),
+
               floatingLabelBehavior: FloatingLabelBehavior.always,
               suffixIcon:
                   CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
