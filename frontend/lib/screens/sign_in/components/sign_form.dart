@@ -3,22 +3,21 @@ import 'package:flutter/material.dart';
 import '../../../components/custom_surfix_icon.dart';
 import '../../../components/form_error.dart';
 import '../../../constants.dart';
-import '../../../helper/keyboard.dart';
-import '../../forgot_password/forgot_password_screen.dart';
-import '../../login_success/login_success_screen.dart';
+import '../../complete_profile/complete_profile_screen.dart';
 
-class SignForm extends StatefulWidget {
-  const SignForm({super.key});
+class SignUpForm extends StatefulWidget {
+  const SignUpForm({super.key});
 
   @override
-  _SignFormState createState() => _SignFormState();
+  _SignUpFormState createState() => _SignUpFormState();
 }
 
-class _SignFormState extends State<SignForm> {
+class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
   String? email;
   String? password;
-  bool? remember = false;
+  String? conform_password;
+  bool remember = false;
   final List<String?> errors = [];
 
   void addError({String? error}) {
@@ -66,12 +65,13 @@ class _SignFormState extends State<SignForm> {
             },
             decoration: const InputDecoration(
               labelText: "Email",
-              labelStyle: const TextStyle(color: Colors.orange ),
-              hintText: "Enter your email", hintStyle: const TextStyle(color:Colors.white38),
+              labelStyle: TextStyle(color: Colors.orange,fontSize:24),
+              hintText: "Enter your email",
+              hintStyle: TextStyle(color: Colors.white54),
               // If  you are using latest version of flutter then lable text and hint text shown like this
               // if you r using flutter less then 1.20.* then maybe this is not working properly
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg")
+              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
             ),
           ),
           const SizedBox(height: 20),
@@ -84,7 +84,7 @@ class _SignFormState extends State<SignForm> {
               } else if (value.length >= 8) {
                 removeError(error: kShortPassError);
               }
-              return;
+              password = value;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -98,7 +98,10 @@ class _SignFormState extends State<SignForm> {
             },
             decoration: const InputDecoration(
               labelText: "Password",
+              labelStyle: TextStyle(color: Colors.orange,fontSize:24),
               hintText: "Enter your password",
+              hintStyle: TextStyle(color: Colors.white54),
+              // hintStyle: TextStyle(color: Colors.white38),
               // If  you are using latest version of flutter then lable text and hint text shown like this
               // if you r using flutter less then 1.20.* then maybe this is not working properly
               floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -106,41 +109,49 @@ class _SignFormState extends State<SignForm> {
             ),
           ),
           const SizedBox(height: 20),
-          Row(
-            children: [
-              Checkbox(
-                value: remember,
-                activeColor: kPrimaryColor,
-                onChanged: (value) {
-                  setState(() {
-                    remember = value;
-                  });
-                },
-              ),
-              const Text("Remember me"),
-              const Spacer(),
-              GestureDetector(
-                onTap: () => Navigator.pushNamed(
-                    context, ForgotPasswordScreen.routeName),
-                child: const Text(
-                  "Forgot Password",
-                  style: TextStyle(decoration: TextDecoration.underline),
-                ),
-              )
-            ],
+          TextFormField(
+            obscureText: true,
+            onSaved: (newValue) => conform_password = newValue,
+            onChanged: (value) {
+              if (value.isNotEmpty) {
+                removeError(error: kPassNullError);
+              } else if (value.isNotEmpty && password == conform_password) {
+                removeError(error: kMatchPassError);
+              }
+              conform_password = value;
+            },
+            validator: (value) {
+              if (value!.isEmpty) {
+                addError(error: kPassNullError);
+                return "";
+              } else if ((password != value)) {
+                addError(error: kMatchPassError);
+                return "";
+              }
+              return null;
+            },
+            decoration: const InputDecoration(
+              labelText: "Confirm Password",
+              labelStyle: TextStyle(color: Colors.orange,fontSize:24),
+              hintText: "Re-enter your password",
+              hintStyle: TextStyle(color: Colors.white54),
+
+              // If  you are using latest version of flutter then lable text and hint text shown like this
+              // if you r using flutter less then 1.20.* then maybe this is not working properly
+              floatingLabelBehavior: FloatingLabelBehavior.always,
+              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
+            ),
           ),
           FormError(errors: errors),
-          const SizedBox(height: 16),
+          const SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
-                // if all are valid then go to success screen
-                KeyboardUtil.hideKeyboard(context);
-                Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+                Navigator.pushNamed(context, CompleteProfileScreen.routeName);
               }
             },
-            child: const Text("Continue"),
+            child: const Text("Continue",style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.bold),),
           ),
         ],
       ),
