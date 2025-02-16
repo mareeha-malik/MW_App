@@ -29,14 +29,14 @@ class _SplashScreenState extends State<SplashScreen> {
     {
       "text": "We show the easy way to shop. \nJust stay at home with us",
       "image": "assets/images/shirts.png",
-      "imageSize": 450.0,
+      "imageSize": 460.0,
     },
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF1B1B1B), // Dark mode background
+      backgroundColor: Color(0xFF1B1B1B),
       body: SafeArea(
         child: SizedBox(
           width: double.infinity,
