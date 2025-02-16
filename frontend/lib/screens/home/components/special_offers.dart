@@ -24,17 +24,17 @@ class SpecialOffers extends StatelessWidget {
           child: Row(
             children: [
               SpecialOfferCard(
-                image: "assets/images/Image Banner 2.png",
-                category: "Smartphone",
-                numOfBrands: 18,
+                image: "assets/images/allshirts.png",
+                category: "Jerseys",
+                numOfBrands: 5,
                 press: () {
                   Navigator.pushNamed(context, ProductsScreen.routeName);
                 },
               ),
               SpecialOfferCard(
-                image: "assets/images/Image Banner 3.png",
-                category: "Fashion",
-                numOfBrands: 24,
+                image: "assets/images/bats.png",
+                category: "Bats",
+                numOfBrands: 6,
                 press: () {
                   Navigator.pushNamed(context, ProductsScreen.routeName);
                 },
