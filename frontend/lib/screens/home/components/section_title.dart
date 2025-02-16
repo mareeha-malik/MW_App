@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class SectionTitle extends StatelessWidget {
   const SectionTitle({
     Key? key,
@@ -18,9 +17,9 @@ class SectionTitle extends StatelessWidget {
         Text(
           title,
           style: const TextStyle(
-            fontSize: 16,
+            fontSize: 17,
             fontWeight: FontWeight.w600,
-            color: Colors.black,
+            color: Color(0xFFD15803),
           ),
         ),
         TextButton(
