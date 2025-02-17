@@ -1,51 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-import 'components/profile_menu.dart';
-import 'components/profile_pic.dart';
+import '../../../constants.dart';
 
-class ProfileScreen extends StatelessWidget {
-  static String routeName = "/profile";
+class ProfileMenu extends StatelessWidget {
+  const ProfileMenu({
+    Key? key,
+    required this.text,
+    required this.icon,
+    this.press,
+  }) : super(key: key);
 
-  const ProfileScreen({super.key});
+  final String text, icon;
+  final VoidCallback? press;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor:Colors.black,
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: const Text("Profile"),
-      ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(vertical: 20),
-        child: Column(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: TextButton(
+        style: TextButton.styleFrom(
+          foregroundColor: kPrimaryColor, padding: const EdgeInsets.all(20),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+          backgroundColor: const  Color(0xFF1B1B1B),
+        ),
+        onPressed: press,
+        child: Row(
           children: [
-            const ProfilePic(),
-            const SizedBox(height: 20),
-            ProfileMenu(
-              text: "My Account",
-              icon: "assets/icons/User Icon.svg",
-              press: () => {},
+            SvgPicture.asset(
+              icon,
+              color: kPrimaryColor,
+              width: 22,
             ),
-            ProfileMenu(
-              text: "Notifications",
-              icon: "assets/icons/Bell.svg",
-              press: () {},
-            ),
-            ProfileMenu(
-              text: "Settings",
-              icon: "assets/icons/Settings.svg",
-              press: () {},
-            ),
-            ProfileMenu(
-              text: "Help Center",
-              icon: "assets/icons/Question mark.svg",
-              press: () {},
-            ),
-            ProfileMenu(
-              text: "Log Out",
-              icon: "assets/icons/Log out.svg",
-              press: () {},
-            ),
+            const SizedBox(width: 20),
+            Expanded(child: Text(text)),
+            const Icon(Icons.arrow_forward_ios,color: Colors.orange,),
           ],
         ),
       ),
